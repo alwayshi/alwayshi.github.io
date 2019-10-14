@@ -1,4 +1,4 @@
-let contractAddress = '0xe78576eD49DDca565687aeEC8659B54040F5D594';
+let contractAddress = '0x9161993ee2dffb123186a05c168fd1eefc477c51';
 let abi =
 [
 	{
@@ -113,6 +113,20 @@ let abi =
 		"constant": true,
 		"inputs": [],
 		"name": "getTicketCount",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getTicketPrice",
 		"outputs": [
 			{
 				"name": "",
@@ -258,7 +272,7 @@ function getEther() {
 }
 
 function getToken() {
-  simpleVote.getTicketsCount(function(e,r){
+  simpleVote.getTicketCount(function(e,r){
     document.getElementById('ticketValue').innerHTML = r.toString();
   });
 }
@@ -271,31 +285,24 @@ function getTokenInfo() {
   simpleVote.getSellableCount(function(e,r){
     document.getElementById('tickets-sellable').innerHTML = r.toString();
   });
- /* simpleVote.getTicketPrice(function(e,r){
+simpleVote.getTicketPrice(function(e,r){
     tokenPrice = parseFloat(web3.fromWei(r.toString()));
     document.getElementById('ticket-cost').innerHTML = tokenPrice + "ETH";
   });
-*/
+
   web3.eth.getBalance(simpleVote.address, function(e,v) {
     document.getElementById('contract-balance').innerHTML = web3.fromWei(v.toString()) + "ETH";
   });
 }
 
 function getCandidateInfo() {
- /* simpleVote.getTicketsReceive(function(e,r){
+  simpleVote.getCandidateTicket(function(e,r){
     for(let i=1;i<=r.length;i++)
     {
       document.getElementById('day_votes_' + i).innerHTML = r[i-1].toString();
     }
   });
-*/
-document.getElementById('day_votes_' + 1).innerHTML = "Monday"
-document.getElementById('day_votes_' + 1).innerHTML = "Tuesday"
-document.getElementById('day_votes_' + 1).innerHTML = "Wednesday"
-document.getElementById('day_votes_' + 1).innerHTML = "Thursday"
-document.getElementById('day_votes_' + 1).innerHTML = "Friday"
-document.getElementById('day_votes_' + 1).innerHTML = "Saturday"
-document.getElementById('day_votes_' + 1).innerHTML = "Sunday"
+
 
 
 }
