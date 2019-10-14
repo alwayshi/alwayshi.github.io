@@ -275,7 +275,7 @@ function getTokenInfo() {
     tokenPrice = parseFloat(web3.fromWei(r.toString()));
     document.getElementById('ticket-cost').innerHTML = tokenPrice + "ETH";
   });
-/*
+*/
   web3.eth.getBalance(simpleVote.address, function(e,v) {
     document.getElementById('contract-balance').innerHTML = web3.fromWei(v.toString()) + "ETH";
   });
@@ -288,7 +288,7 @@ function getCandidateInfo() {
       document.getElementById('day_votes_' + i).innerHTML = r[i-1].toString();
     }
   });
-/*
+*/
 document.getElementById('day_votes_' + 1).innerHTML = "Monday"
 document.getElementById('day_votes_' + 1).innerHTML = "Tuesday"
 document.getElementById('day_votes_' + 1).innerHTML = "Wednesday"
